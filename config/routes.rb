@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   
+  devise_for :authors
   root to: 'blog/posts#index'  
  
   # /authors/posts 
-  namespace :author do
+  namespace :authors do
     resources :posts 
 
   end
