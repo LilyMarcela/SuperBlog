@@ -20,3 +20,8 @@
 //= require popper
 //= require bootstrap
 //= require_tree 
+document.addEventListener("turbolinks:load", function() {
+  tinymce.remove(); 
+  tinymce.init({ selector:'textarea' });
+
+})
