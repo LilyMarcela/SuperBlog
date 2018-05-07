@@ -18,7 +18,7 @@ class Post < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged 
 
-  belongs_to :author, :optional => :true﻿
+  belongs_to :author
   
   scope :most_recent, -> { order(published_at: :desc) }
   scope :published, -> { where(published: true) }
@@ -28,7 +28,11 @@ class Post < ApplicationRecord
   end
 
   def display_day_published
-    "Published #{created_at.strftime('%-b %-d, %Y')}"
+    if published_at.present?
+      "Published #{published_at.strftime('%-b %-d, %Y')}"
+    else
+      "Not published yet."
+    end
   end
 
   def publish
