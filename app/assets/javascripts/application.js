@@ -24,6 +24,7 @@
 document.addEventListener("turbolinks:load", function() {
   tinymce.remove(); 
   tinymce.init({ 
+    height: '400',
     selector:'textarea#post_body', 
     plugins: "codesample image media link code textcolor colorpicker spellchecker",
     toolbar: "undo redo | styleselect | bold italic | codesample image media | code | forecolor backcolor | spellchecker" });
