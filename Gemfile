@@ -6,8 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'acts-as-taggable-on', '~> 4.0'
+gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
 
+gem 'pg'
 
 gem 'will_paginate', '~> 3.1.0'
 
@@ -22,7 +23,6 @@ gem 'bootstrap', '~> 4.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

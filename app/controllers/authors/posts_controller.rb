@@ -1,4 +1,4 @@
-module Authors
+ module Authors
   
   class PostsController < AuthorController
     before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
@@ -81,7 +81,7 @@ module Authors
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def post_params
-        params.require(:post).permit(:title, :body, :description, :banner_image_url)
+        params.require(:post).permit(:title, :body, :description, :banner_image_url, :tag_list)
       end
   end
 
