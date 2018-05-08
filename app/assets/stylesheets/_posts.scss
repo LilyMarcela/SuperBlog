@@ -1,15 +1,9 @@
-#main_posts {
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #181818;
-  height: 400px;
-  margin-bottom: 20px;
-}
-
 .apple_pagination {
   background: #f1f1f1;
   border: 1px solid #e5e5e5;
   display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 1em;
   cursor: default; }
@@ -34,6 +28,19 @@
     color: black; }
     .apple_pagination a:hover, .apple_pagination a:focus {
       text-decoration: underline; }
+
+
+
+
+#main_posts {
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #181818;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+
 
 
 #main_posts .card-topper{
