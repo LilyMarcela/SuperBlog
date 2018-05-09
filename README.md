@@ -1,25 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a superblog created in Ruby and Rails
 
-Things you may want to cover:
+Added Gem Act_as_taggable_on for tagging
 
-* Ruby version
+Added will_paginate for pagination
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+Not deployed yet
 
 * ...
 # SuperBlog
