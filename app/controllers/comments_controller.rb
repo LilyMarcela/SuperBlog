@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 	end
 
 	def new
-	   @post = Post.find(params[:post_id])
+	  @post = Post.find(params[:post_id])
 	  @comment = Comment.new
 	end
 
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 	  
 	  if @comment.save
 	    flash[:success] = "Comment successfully added"
-	    redirect_to posts_path
+	    redirect_to request.referer
 	  else
 	    render 'new'
 	  end
@@ -31,6 +31,10 @@ class CommentsController < ApplicationController
       
 	  @comment = Comment.find(params[:id])
       @comment.destroy
+      respond_to do |format|
+        format.html { redirect_to request.referer, notice: 'Your comment was deleted.' }
+        format.json { head :no_content }
+      end
   	end
 
 	private
