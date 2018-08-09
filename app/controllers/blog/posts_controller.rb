@@ -1,6 +1,7 @@
 module Blog
   
   class PostsController < BlogController
+    
 
   # GET /posts
   # GET /posts.json
@@ -12,6 +13,9 @@ module Blog
     # GET /posts/1.json
     def show
       @post = storage.friendly.find(params[:id])
+       @comments = @post.comments.all
+      @comment = Comment.new(post_id: params[:post_id])
+
     end
 
     private

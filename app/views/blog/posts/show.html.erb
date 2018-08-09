@@ -36,6 +36,6 @@
 <% end %>
 
 
-<%= link_to "Add Comment", new_comment_path(post_id: @post.id) %>
+<%=render "/comments/form", post: @post, comment: @comment%>
 
 <%= link_to 'Back', posts_path, class: 'btn btn-sm btn-danger' %>

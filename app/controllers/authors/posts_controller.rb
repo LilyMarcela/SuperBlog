@@ -12,8 +12,10 @@
     # GET /posts/1
     # GET /posts/1.json
     def show
+      byebug
       @comments = @post.comments.all
-      @comment = @post.comments.build
+      @comment = Comment.new(post_id: params[:post_id])
+
     end
 
     # GET /posts/new

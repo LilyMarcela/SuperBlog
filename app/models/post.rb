@@ -15,6 +15,8 @@
 
 class Post < ApplicationRecord
   acts_as_taggable # Alias for acts_as_taggable_on :tags
+  validates :title, presence: true
+  validates :body, length: {minimum: 250}, allow_blank: false
 
   extend FriendlyId
   friendly_id :title, use: :slugged

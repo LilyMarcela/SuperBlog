@@ -1,6 +1,7 @@
 
 
 class CommentsController < ApplicationController
+	before_action :authenticate_author!  
 	def index
 	  @comments = Comment.all
 	end
@@ -12,6 +13,7 @@ class CommentsController < ApplicationController
 
 	def create
 	  @comment = Comment.new(comment_params)
+	  @comment.email = current_author.email
 	  
 	  if @comment.save
 	    flash[:success] = "Comment successfully added"
