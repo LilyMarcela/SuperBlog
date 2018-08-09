@@ -12,28 +12,25 @@
 
 
 
-
-
-
-  <h3>Comments</h3>
+<h3>Comments</h3>
 <% @post.comments.each do |comment| %>
   <div>
     <strong><%= comment.name %></strong>
     <br>
-    <p><%= comment.email %></p>
+    <p> Published by <%= comment.email %></p>
     <p><%= comment.content %></p>
-    <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% if author_signed_in? %>
+    <% if current_author.id == @post.author_id %>
+    <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></p>
+
   
   </div>
+  <%end%>
+  <%end%>
 <% end %>
 
 
 
-  <% @post.comments.each do |comment| %>
-	<%= comment.name %>
-	<%= comment.content %>
-
-<% end %>
 
 
 <%=render "/comments/form", post: @post, comment: @comment%>

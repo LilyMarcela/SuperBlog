@@ -28,9 +28,8 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
-      @post = Post.find(params[:id])
+      
 	  @comment = Comment.find(params[:id])
-	  @comment.post_id = @post.id
       @comment.destroy
   	end
 
