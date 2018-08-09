@@ -20,6 +20,7 @@ class Post < ApplicationRecord
   friendly_id :title, use: :slugged
 
   belongs_to :author
+  has_many :comments
 
   PER_PAGE = 3
 

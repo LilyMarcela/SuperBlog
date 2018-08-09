@@ -5,7 +5,8 @@
             <h4 class="card-title"><%= link_to post.title, post %></h4>
             <p><%= raw post.tags.map { |t| link_to t.name, posts_path(tag: t.name) }.join(', ') %></p>
             <p class="published-date"><%= post.display_day_published %></p>
-            <p class="card-text"><%=truncate(post.description, length: 130) %></p>
+            <p class="published-date">Created by <%= post.author.email %></p>
+            <p class="card-text"><%=truncate(post.description, length: 250) %></p>
             <%= link_to 'Read', post, class: 'btn btn-read' %>
         </div>
     </div>

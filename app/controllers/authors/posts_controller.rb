@@ -12,11 +12,15 @@
     # GET /posts/1
     # GET /posts/1.json
     def show
+      @comments = @post.comments.all
+      @comment = @post.comments.build
     end
 
     # GET /posts/new
     def new
       @post = current_author.posts.new
+      @comment = Comment.new(post_id: params[:post_id])
+
     end
 
     # GET /posts/1/edit
