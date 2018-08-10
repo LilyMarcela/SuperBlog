@@ -3,14 +3,12 @@
   class PostsController < AuthorController
     before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
 
-    # GET /posts
-    # GET /posts.json
+
     def index
       @posts = current_author.posts.most_recent
     end
 
-    # GET /posts/1
-    # GET /posts/1.json
+
     def show
    
       @comments = @post.comments.all
@@ -18,14 +16,14 @@
 
     end
 
-    # GET /posts/new
+
     def new
       @post = current_author.posts.new
       @comment = Comment.new(post_id: params[:post_id])
 
     end
 
-    # GET /posts/1/edit
+
     def edit
     end
 
@@ -39,8 +37,7 @@
       redirect_to authors_posts_url
     end
 
-    # POST /posts
-    # POST /posts.json
+
     def create
       @post = current_author.posts.new(post_params)
 
@@ -55,8 +52,6 @@
       end
     end
 
-    # PATCH/PUT /posts/1
-    # PATCH/PUT /posts/1.json
     def update
       respond_to do |format|
         if @post.update(post_params)
@@ -69,8 +64,6 @@
       end
     end
 
-    # DELETE /posts/1
-    # DELETE /posts/1.json
     def destroy
       @post.destroy
       respond_to do |format|
@@ -80,12 +73,10 @@
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
       def set_post
         @post = current_author.posts.friendly.find(params[:id])
       end
 
-      # Never trust parameters from the scary internet, only allow the white list through.
       def post_params
         params.require(:post).permit(:title, :body, :description, :banner_image_url, :tag_list)
       end
