@@ -1,0 +1,7 @@
+es:
+  Published: "Publicado hace"
+  date:
+    month: 
+      Aug: "Agosto"
+    formats:
+      default: "%d / %m / %Y"

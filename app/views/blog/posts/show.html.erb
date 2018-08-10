@@ -4,35 +4,48 @@
 <div class="row">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
     <h1><%= @post.title %></h1>
-    <p><%= @post.display_day_published %></p>
-    <p><%= @post.author.email %></p>
+    <p class="author_email"><%= t('Published')%> <%= time_ago_in_words(@post.display_day_published)
+
+    %></p>
+    <p class="author_email"><%= @post.author.email %></p>
     <%= @post.body.html_safe %>
     </div>
 </div>
 
 
+<div class="comments col-md-8 offset-md-1 col-lg-6 offset-lg-2 text-xs-center">
+  <h3>Comments</h3>
+    <% @post.comments.each do |comment| %>
+    <div class="comments_style">
+      <div class="row comment_email">
+        <div class="col">
+            <p class="author_email"> Published by <%= comment.email %></p>
+        </div>
+      </div>
+        
+      <div class="row comment_content">
+        <div class="col-11">
+          <p><%= comment.content %></p>
+        </div>
+        <div class="col-1">
+           <% if author_signed_in? %>
+             <% if current_author.id == @post.author_id %>
+               <i><%= link_to '', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-trash-o btn-trash' %></i>
+              <%end%>
+           <%end%>
+        </div>   
+       </div>
+    <% end %>
+    </div>
+      
 
-<h3>Comments</h3>
-<% @post.comments.each do |comment| %>
-  <div>
-    <strong><%= comment.name %></strong>
-    <br>
-    <p> Published by <%= comment.email %></p>
-    <p><%= comment.content %></p>
-    <% if author_signed_in? %>
-    <% if current_author.id == @post.author_id %>
-    <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></p>
-
+  <% if author_signed_in? %>
+    <div>
+      <%=render "/comments/form", post: @post, comment: @comment%>
+    </div>
+  <% end %>
   
-  </div>
-  <%end%>
-  <%end%>
-<% end %>
-
-
-
-
-
-<%=render "/comments/form", post: @post, comment: @comment%>
-
-<%= link_to 'Back', posts_path, class: 'btn btn-sm btn-danger' %>
+</div>
+<div>
+  <%= link_to 'Back', posts_path, class: 'btn btn-sm btn-any' %>
+</div>
