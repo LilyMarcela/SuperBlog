@@ -10,6 +10,11 @@
             <p class="published-date">Created by <%= post.author.email %></p>
             <p class="card-text"><%=truncate(post.description, length: 150) %></p>
             <%= link_to 'Read', post, class: 'btn btn-read' %>
+
+            <% if author_signed_in? and current_author.id == post.author_id %>
+            <%= link_to 'Edit', edit_authors_post_path(post), class: 'btn btn-read' %>
+            <%= link_to 'Delete', authors_post_path(post), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-read' %>
+            <% end %>
         </div>
     </div>
 </div>
