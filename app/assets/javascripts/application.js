@@ -10,16 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+//= require twitter/bootstrap
 //= require rails-ujs
 //= require turbolinks
-
-
-//= require jquery3
-//= require jquery_ujs
-
-//= require popper
-//= require bootstrap
-//= require_tree 
+//= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
   tinymce.remove(); 

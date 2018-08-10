@@ -20,6 +20,7 @@ gem 'annotate'
 gem 'friendly_id', '~> 5.1.0'
 
 gem 'jquery-rails'
+gem "bootstrap-sass-rails", "~> 2.2.2.0"
 
 gem 'bootstrap', '~> 4.1.1'
 
@@ -47,6 +48,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem 'bootsnap', '>= 1.1.0', require: false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -13,9 +13,9 @@
     <div>
     	<p class="author_email"><%= t('Published')%> <%= time_ago_in_words(@post.display_day_published)%></p>
      <br>
-        <td><%= link_to 'Unpublish', unpublish_authors_post_path(@post), method: :put, class: 'btn btn-sm btn-primary'%> </td>
+        <div><%= link_to 'Unpublish', unpublish_authors_post_path(@post), method: :put, class: 'btn btn-sm btn-primary'%> </div>
     <% else %>
-        <td><%= link_to 'Publish', publish_authors_post_path(@post), method: :put, class: 'btn btn-sm btn-success'%> </td> 
+        <div><%= link_to 'Publish', publish_authors_post_path(@post), method: :put, class: 'btn btn-sm btn-success'%> </div> 
     <% end %>
     </div>
      
