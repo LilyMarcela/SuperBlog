@@ -9,9 +9,19 @@
 <div class="row">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
     <h1><%= @post.title %></h1>
-    <p><%= t('Published')%> <%= time_ago_in_words(@post.display_day_published)
+    <% if @post.published? %>
+    <div>
+    	<p class="author_email"><%= t('Published')%> <%= time_ago_in_words(@post.display_day_published)%></p>
+     <br>
+        <td><%= link_to 'Unpublish', unpublish_authors_post_path(@post), method: :put, class: 'btn btn-sm btn-primary'%> </td>
+    <% else %>
+        <td><%= link_to 'Publish', publish_authors_post_path(@post), method: :put, class: 'btn btn-sm btn-success'%> </td> 
+    <% end %>
+    </div>
+     
+   
 
-    %></p>
+   <br>
     <%= @post.body.html_safe %>
     </div>
 </div>

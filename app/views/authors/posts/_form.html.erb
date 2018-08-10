@@ -2,7 +2,7 @@
 <%= form_for(post, url: url) do |f| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(post.errors.count, "error") %> This post couldn't be saved:</h2>
 
       <ul>
       <% post.errors.full_messages.each do |message| %>
@@ -54,6 +54,7 @@
           <li class="list-group-item">
             <div class="actions">
               <%= f.submit "Save blog post", class: 'btn btn-success btn-block' %>
+
             </div>
           </li>
         </ul>
