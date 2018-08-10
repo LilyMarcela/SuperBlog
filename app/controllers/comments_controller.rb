@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
 	def create
 	  @comment = Comment.new(comment_params)
 	  @comment.author_id = current_author.id
+	  @comment.email = current_author.email
 	  
 	  if @comment.save
 	    flash[:success] = "Comment successfully added"
