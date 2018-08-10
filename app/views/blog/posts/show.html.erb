@@ -29,7 +29,7 @@
         </div>
         <div class="col-1">
            <% if author_signed_in? %>
-             <% if current_author.id == @post.author_id %>
+             <% if current_author.id == comment.author_id %>
                <i><%= link_to '', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-trash-o btn-trash' %></i>
               <%end%>
            <%end%>

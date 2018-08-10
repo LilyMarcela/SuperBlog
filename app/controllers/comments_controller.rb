@@ -13,13 +13,13 @@ class CommentsController < ApplicationController
 
 	def create
 	  @comment = Comment.new(comment_params)
-	  @comment.email = current_author.email
+	  @comment.author_id = current_author.id
 	  
 	  if @comment.save
 	    flash[:success] = "Comment successfully added"
 	    redirect_to request.referer
 	  else
-	    render 'new'
+	    redirect_to request.referer
 	  end
 	end
 
