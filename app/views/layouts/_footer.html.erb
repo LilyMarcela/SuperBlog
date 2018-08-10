@@ -41,12 +41,17 @@
                     </ul>
                 </div>
                 <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
-                    <h3> Subscribe Us </h3>
+                    <h3> login or register </h3>
                     <ul>
                         <li>
-                            <div class="input-append subscribe-btn text-center">
-                                <input type="text" class="full text-center" placeholder="Email ">
-                                <button class="btn " type="button"> Subscribe <i class="fa fa-mail"> </i> </button>
+                            <div>
+                                <%= link_to " Log in", new_author_session_path, class: "fa fa-user-plus btn-foot" %>
+                            </div>
+                        </li>
+                        <br>
+                        <li>
+                             <div>
+                                <%= link_to " Register", new_author_registration_path, class: "fa fa-user-plus btn-foot" %>
                             </div>
                         </li>
                     </ul>
